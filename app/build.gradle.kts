@@ -34,15 +34,14 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.navigation.compose)
 
     implementation(projects.core.ui)
+    implementation(projects.feature.workouts)
+    implementation(projects.feature.activeWorkout)
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
-
-    testImplementation(libs.kotlin.test)
-
-    androidTestImplementation(libs.kotlin.test)
 }

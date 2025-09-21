@@ -14,7 +14,6 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
         with(target) {
             dependencies {
                 add("implementation", libs.findLibrary("androidx-lifecycle-runtime-compose").get())
-                add("implementation", libs.findLibrary("androidx-navigation-compose").get())
             }
         }
     }
