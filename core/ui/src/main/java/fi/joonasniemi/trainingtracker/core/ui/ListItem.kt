@@ -9,6 +9,8 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.defaultMinSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
@@ -33,6 +35,7 @@ fun ListItemWrapper(
 
     Column(
         modifier = modifier
+            .defaultMinSize(minHeight = 48.dp)
             .clickable(
                 onClick = onClick,
                 interactionSource = interactionSource,
@@ -45,7 +48,8 @@ fun ListItemWrapper(
                 interactionSource = interactionSource,
                 indication = LocalIndication.current,
             )
-            .padding(8.dp),
+            .padding(8.dp)
+            .fillMaxWidth(),
         content = content,
     )
 }

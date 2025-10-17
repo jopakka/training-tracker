@@ -8,8 +8,6 @@ import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import fi.joonasniemi.trainingtracker.ActiveWorkoutNavigation
-import fi.joonasniemi.trainingtracker.WorkoutsNavigation
 
 @Composable
 fun rememberTrainingTrackerAppState(
@@ -31,5 +29,10 @@ class TrainingTrackerAppState(
             val currentEntry = navController.currentBackStackEntryFlow
                 .collectAsState(initial = null)
             return currentEntry.value?.destination
+        }
+
+    val currentTopLevelDestination: TopLevelDestination?
+        @Composable get() = TopLevelDestination.entries.firstOrNull { destination ->
+            currentDestination?.hasRoute(destination.route) == true
         }
 }

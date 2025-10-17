@@ -2,25 +2,19 @@ package fi.joonasniemi.trainingtracker.ui
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
-import androidx.compose.material3.FloatingActionButton
-import androidx.compose.material3.Icon
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.navigation.NavDestination.Companion.hasRoute
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.rememberNavController
-import fi.joonasniemi.trainingtracker.WorkoutsNavigation
-import fi.joonasniemi.trainingtracker.activeWorkoutRoute
+import fi.joonasniemi.trainingtracker.core.designsystem.components.TopAppBar
 import fi.joonasniemi.trainingtracker.core.designsystem.components.TrainingTrackerBackground
-import fi.joonasniemi.trainingtracker.core.designsystem.theme.TrainingTrackerTheme
-import fi.joonasniemi.trainingtracker.navigateToActiveWorkout
-import fi.joonasniemi.trainingtracker.workoutsRoute
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun App(
     appState: TrainingTrackerAppState,
@@ -30,31 +24,25 @@ fun App(
         Scaffold(
             contentColor = MaterialTheme.colorScheme.onBackground,
             containerColor = Color.Transparent,
-            floatingActionButton = {
-                if (appState.currentDestination?.hasRoute<WorkoutsNavigation>() == true) {
-                    FloatingActionButton(
-                        onClick = {},
-                    ) {
-                        Icon(
-                            Icons.Default.Add,
-                            contentDescription = null,
-                        )
-                    }
-                }
+            topBar = {
+                TopAppBar(
+                    title = {
+                        val titleTextId = appState.currentTopLevelDestination?.titleTextId
+                        if (titleTextId != null) {
+                            Text(text = stringResource(titleTextId))
+                        }
+                    },
+                )
             }
         ) { innerPadding ->
             NavHost(
                 navController = appState.navController,
-                startDestination = WorkoutsNavigation,
+                startDestination = ExercisesRoute,
                 modifier = Modifier
                     .padding(innerPadding)
                     .fillMaxSize(),
             ) {
-                workoutsRoute(
-                    navigateToWorkout = { appState.navController.navigateToActiveWorkout(it) }
-                )
-
-                activeWorkoutRoute()
+                exercises()
             }
         }
     }

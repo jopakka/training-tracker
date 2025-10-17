@@ -36,9 +36,10 @@ dependencies {
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.navigation.compose)
 
+    implementation(projects.core.data)
     implementation(projects.core.ui)
-    implementation(projects.feature.workouts)
-    implementation(projects.feature.activeWorkout)
+
+    implementation(projects.feature.exercises)
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

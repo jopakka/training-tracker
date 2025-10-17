@@ -7,5 +7,7 @@ import androidx.room.PrimaryKey
 data class ExerciseEntity(
     @PrimaryKey
     val exerciseId: String,
+    val exerciseTemplateId: String,
     val workoutId: String,
+    val timestamp: Long,
 )
