@@ -6,7 +6,6 @@ import kotlin.time.Instant
 @OptIn(ExperimentalTime::class)
 data class Exercise(
     val id: String,
-    val workoutId: String,
     val exerciseTemplate: ExerciseTemplate,
     val sets: List<ExerciseSet>,
     val timestamp: Instant,

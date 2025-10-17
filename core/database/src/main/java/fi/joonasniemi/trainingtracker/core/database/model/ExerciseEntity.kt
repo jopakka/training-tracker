@@ -8,6 +8,5 @@ data class ExerciseEntity(
     @PrimaryKey
     val exerciseId: String,
     val exerciseTemplateId: String,
-    val workoutId: String,
     val timestamp: Long,
 )

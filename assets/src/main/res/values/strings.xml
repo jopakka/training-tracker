@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="assets_exercises">Exercises</string>
+    <string name="assets_select_exercise">Select exercise</string>
 </resources>

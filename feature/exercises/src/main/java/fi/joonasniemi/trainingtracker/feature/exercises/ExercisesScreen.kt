@@ -1,6 +1,8 @@
 package fi.joonasniemi.trainingtracker.feature.exercises
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -9,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import fi.joonasniemi.trainingtracker.core.designsystem.theme.TrainingTrackerTheme
 import fi.joonasniemi.trainingtracker.core.model.Exercise
@@ -18,6 +21,7 @@ import kotlin.time.ExperimentalTime
 
 @Composable
 fun ExercisesScreen(
+    navigateToExercise: (String) -> Unit,
     viewModel: ExercisesViewModel = koinViewModel(),
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
@@ -27,6 +31,7 @@ fun ExercisesScreen(
         onAction = viewModel::onAction,
         state = state,
         exercises = exercises,
+        navigateToExercise = navigateToExercise,
     )
 }
 
@@ -34,17 +39,21 @@ fun ExercisesScreen(
 internal fun ExercisesScreen(
     onAction: (ExercisesAction) -> Unit,
     state: ExercisesState,
+    navigateToExercise: (String) -> Unit,
     exercises: List<Exercise>,
 ) {
     Box(Modifier.fillMaxSize()) {
-        LazyColumn {
+        LazyColumn(
+            contentPadding = PaddingValues(8.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
             items(
                 items = exercises,
                 key = { it.id },
             ) {
                 ExerciseItem(
                     exercise = it,
-                    onClick = {},
+                    onClick = { navigateToExercise(it.id) },
                 )
             }
         }
@@ -74,6 +83,7 @@ private fun ExercisesScreenPreview() {
             onAction = {},
             state = ExercisesState(),
             exercises = listOf(),
+            navigateToExercise = {},
         )
     }
 }

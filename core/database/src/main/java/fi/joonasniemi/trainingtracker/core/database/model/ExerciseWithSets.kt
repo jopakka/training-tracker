@@ -21,7 +21,6 @@ data class ExerciseWithSets(
 
 fun ExerciseWithSets.asExternalModel() = Exercise(
     id = exercise.exerciseId,
-    workoutId = exercise.workoutId,
     sets = sets.map(ExerciseSetEntity::asExternalModel),
     exerciseTemplate = exerciseTemplate.asExternalModel(),
     timestamp = Instant.fromEpochMilliseconds(exercise.timestamp),

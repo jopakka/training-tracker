@@ -13,6 +13,9 @@ import kotlinx.coroutines.flow.flatMapMerge
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.atStartOfDayIn
+import kotlin.time.Duration.Companion.days
 import kotlin.time.ExperimentalTime
 
 @OptIn(ExperimentalTime::class, ExperimentalCoroutinesApi::class)
@@ -35,7 +38,11 @@ class ExercisesViewModel(
             initialValue = ExercisesState()
         )
 
-    val exercises = state.map { it.exercisesFrom to it.exercisesTo }
+    val exercises = state.map {
+        val timezone = TimeZone.currentSystemDefault()
+        it.exercisesForDate.atStartOfDayIn(timezone) to
+        it.exercisesForDate.atStartOfDayIn(timezone).plus(1.days)
+    }
         .distinctUntilChanged()
         .flatMapConcat { exercisesRepository.exercises(it.first, it.second) }
         .stateIn(

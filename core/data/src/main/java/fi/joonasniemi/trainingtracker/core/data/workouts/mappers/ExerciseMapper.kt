@@ -7,7 +7,6 @@ import kotlin.time.ExperimentalTime
 @OptIn(ExperimentalTime::class)
 internal fun Exercise.asEntity() = ExerciseEntity(
     exerciseId = id,
-    workoutId = workoutId,
     exerciseTemplateId = exerciseTemplate.id,
     timestamp = timestamp.toEpochMilliseconds(),
 )

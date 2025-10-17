@@ -40,6 +40,8 @@ dependencies {
     implementation(projects.core.ui)
 
     implementation(projects.feature.exercises)
+    implementation(projects.feature.activeExercise)
+    implementation(projects.feature.exersiceselect)
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

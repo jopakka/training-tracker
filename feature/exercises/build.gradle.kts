@@ -10,6 +10,8 @@ android {
 }
 
 dependencies {
+    implementation(libs.kotlinx.datetime)
+
     implementation(projects.assets)
     implementation(projects.core.data)
     implementation(projects.core.model)

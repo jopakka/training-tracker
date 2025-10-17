@@ -12,4 +12,12 @@ enum class TopLevelDestination(
         titleTextId = fi.joonasniemi.trainingtracker.assets.R.string.assets_exercises,
         route = ExercisesRoute ::class,
     ),
+    ACTIVE_EXERCISE(
+        titleTextId = fi.joonasniemi.trainingtracker.assets.R.string.assets_exercises,
+        route = ActiveExerciseRoute::class,
+    ),
+    SELECT_EXERCISE(
+        titleTextId = fi.joonasniemi.trainingtracker.assets.R.string.assets_select_exercise,
+        route = ExerciseSelectRoute::class,
+    ),
 }
