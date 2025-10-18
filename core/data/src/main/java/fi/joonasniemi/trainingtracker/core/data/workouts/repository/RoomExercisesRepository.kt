@@ -43,4 +43,8 @@ internal class RoomExercisesRepository(
     override suspend fun addExerciseSet(set: ExerciseSet) {
         exercisesDao.insertExerciseSet(set.asEntity())
     }
+
+    override suspend fun deleteExerciseSet(set: ExerciseSet) {
+        exercisesDao.deleteExerciseSet(set.asEntity())
+    }
 }

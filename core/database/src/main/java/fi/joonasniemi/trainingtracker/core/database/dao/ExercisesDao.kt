@@ -1,6 +1,7 @@
 package fi.joonasniemi.trainingtracker.core.database.dao
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -25,4 +26,7 @@ interface ExercisesDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertExerciseSet(exerciseSet: ExerciseSetEntity)
+
+    @Delete
+    suspend fun deleteExerciseSet(exerciseSet: ExerciseSetEntity)
 }

@@ -21,9 +21,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -34,6 +36,8 @@ import fi.joonasniemi.trainingtracker.core.designsystem.theme.TrainingTrackerThe
 fun ListItemWrapper(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    shape: Shape = ListItemWrapperDefaults.shape,
     content: @Composable BoxScope.() -> Unit,
 ) {
     val interactionSource = remember { MutableInteractionSource() }
@@ -45,10 +49,11 @@ fun ListItemWrapper(
                 onClick = onClick,
                 interactionSource = interactionSource,
                 indication = null,
+                enabled = enabled,
             )
-            .background(MaterialTheme.colorScheme.surface, MaterialTheme.shapes.medium)
-            .border(1.dp, MaterialTheme.colorScheme.outline, MaterialTheme.shapes.medium)
-            .clip(MaterialTheme.shapes.medium)
+            .background(MaterialTheme.colorScheme.surface, shape)
+            .border(1.dp, MaterialTheme.colorScheme.outline, shape)
+            .clip(shape)
             .indication(
                 interactionSource = interactionSource,
                 indication = LocalIndication.current,
@@ -56,7 +61,14 @@ fun ListItemWrapper(
             .padding(8.dp)
             .fillMaxWidth(),
         content = content,
+        contentAlignment = Alignment.Center,
     )
+}
+
+object ListItemWrapperDefaults {
+    val shape: Shape
+        @Composable
+        get() = MaterialTheme.shapes.medium
 }
 
 @Preview(widthDp = 400, heightDp = 100)
@@ -67,7 +79,7 @@ private fun ListItemPreview() {
             ListItemWrapper(
                 onClick = {},
             ) {
-                Column {
+                Column(modifier = Modifier.fillMaxWidth()) {
                     Text("Title")
                     Text("Subtitle")
                 }

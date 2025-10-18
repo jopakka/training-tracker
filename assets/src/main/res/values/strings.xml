@@ -9,4 +9,6 @@
     <string name="assets_exercise_type_arms">Arms</string>
     <string name="assets_exercise_type_core">Core</string>
     <string name="assets_exercise_type_cardio">Cardio</string>
+    <string name="assets_save">Save</string>
+    <string name="assets_add">Add</string>
 </resources>

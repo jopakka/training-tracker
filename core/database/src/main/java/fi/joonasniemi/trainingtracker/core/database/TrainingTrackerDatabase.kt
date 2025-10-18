@@ -8,6 +8,7 @@ import fi.joonasniemi.trainingtracker.core.database.dao.ExercisesDao
 import fi.joonasniemi.trainingtracker.core.database.model.ExerciseEntity
 import fi.joonasniemi.trainingtracker.core.database.model.ExerciseSetEntity
 import fi.joonasniemi.trainingtracker.core.database.model.ExerciseTemplateEntity
+import fi.joonasniemi.trainingtracker.core.database.util.ExerciseSetTypeEnumConverter
 import fi.joonasniemi.trainingtracker.core.database.util.InstantConverter
 
 @Database(
@@ -21,6 +22,7 @@ import fi.joonasniemi.trainingtracker.core.database.util.InstantConverter
 )
 @TypeConverters(
     InstantConverter::class,
+    ExerciseSetTypeEnumConverter::class,
 )
 internal abstract class TrainingTrackerDatabase : RoomDatabase() {
     abstract fun exercisesDao(): ExercisesDao

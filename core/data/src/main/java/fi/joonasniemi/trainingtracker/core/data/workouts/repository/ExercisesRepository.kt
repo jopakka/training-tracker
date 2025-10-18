@@ -15,4 +15,5 @@ interface ExercisesRepository {
     suspend fun addExercise(exercise: Exercise)
 
     suspend fun addExerciseSet(set: ExerciseSet)
+    suspend fun deleteExerciseSet(set: ExerciseSet)
 }

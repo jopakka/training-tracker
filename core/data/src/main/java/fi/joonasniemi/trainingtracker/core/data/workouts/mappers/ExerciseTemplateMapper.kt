@@ -8,6 +8,7 @@ internal fun ExerciseTemplate.asExerciseTemplateEntity(): ExerciseTemplateEntity
         exerciseTemplateId = id,
         name = name,
         category = category,
+        type = type,
     )
 }
 
@@ -16,5 +17,6 @@ internal fun ExerciseTemplateEntity.asExerciseTemplate(): ExerciseTemplate {
         id = exerciseTemplateId,
         name = name,
         category = category,
+        type = type,
     )
 }
