@@ -1,14 +1,18 @@
 package fi.joonasniemi.trainingtracker.feature.exersiceselect
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListScope
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -26,6 +30,10 @@ fun ExerciseSelectScreen(
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     val templates by viewModel.templates.collectAsStateWithLifecycle()
+
+    BackHandler(state.selectedCategory != null) {
+        viewModel.onAction(ExerciseSelectAction.SelectCategory(null))
+    }
 
     ObserveAsEvents(viewModel.exerciseCreated) {
         navigateToExercise(it)
@@ -49,16 +57,72 @@ internal fun ExerciseSelectScreen(
             contentPadding = PaddingValues(8.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            items(
-                items = templates,
-                key = { it.id },
-            ) {
-                ExerciseTemplateItem(
-                    template = it,
-                    onClick = { onAction(ExerciseSelectAction.TemplateSelected(it)) },
+            if (state.selectedCategory == null) {
+                categoryItems(
+                    templates = templates,
+                    onClick = {
+                        onAction(ExerciseSelectAction.SelectCategory(it.category))
+                    },
+                )
+            } else {
+                exerciseTemplateItems(
+                    templates = templates,
+                    selectedCategory = state.selectedCategory,
+                    onClick = {
+                        onAction(ExerciseSelectAction.TemplateSelected(it))
+                    },
                 )
             }
         }
+    }
+}
+
+private fun LazyListScope.categoryItems(
+    onClick: (ExerciseTemplate) -> Unit,
+    templates: List<ExerciseTemplate>,
+) {
+    val categories = templates.distinctBy { it.category }
+
+    items(
+        items = categories,
+        key = { it.id },
+    ) {
+        TemplateCategoryItem(
+            template = it,
+            onClick = { onClick(it) },
+        )
+    }
+}
+
+@Composable
+private fun TemplateCategoryItem(
+    onClick: () -> Unit,
+    template: ExerciseTemplate,
+    modifier: Modifier = Modifier,
+) {
+    ListItemWrapper(
+        onClick = onClick,
+        modifier = modifier,
+    ) {
+        Text(template.category)
+    }
+}
+
+private fun LazyListScope.exerciseTemplateItems(
+    onClick: (ExerciseTemplate) -> Unit,
+    templates: List<ExerciseTemplate>,
+    selectedCategory: String,
+) {
+    val filteredTemplates = templates.filter { it.category == selectedCategory }
+
+    items(
+        items = filteredTemplates,
+        key = { it.id },
+    ) {
+        ExerciseTemplateItem(
+            template = it,
+            onClick = { onClick(it) },
+        )
     }
 }
 

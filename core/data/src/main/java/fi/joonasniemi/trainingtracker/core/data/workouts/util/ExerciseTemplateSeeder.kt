@@ -8,274 +8,274 @@ internal object ExerciseTemplateSeeder {
             // Chest Exercises
             ExerciseTemplate(
                 name = "Bench Press",
-                category = "Chest",
+                category = "chest",
                 id = "bench_press",
             ),
             ExerciseTemplate(
                 name = "Incline Dumbbell Press",
-                category = "Chest",
+                category = "chest",
                 id = "incline_dumbbell_press",
             ),
             ExerciseTemplate(
                 name = "Chest Flyes",
-                category = "Chest",
+                category = "chest",
                 id = "bench_press",
             ),
             ExerciseTemplate(
                 name = "Push-ups",
-                category = "Chest",
+                category = "chest",
                 id = "push_ups",
             ),
             ExerciseTemplate(
                 name = "Dips",
-                category = "Chest",
+                category = "chest",
                 id = "dips",
             ),
             ExerciseTemplate(
                 name = "Cable Crossover",
-                category = "Chest",
+                category = "chest",
                 id = "cable_crossover",
             ),
 
             // Back Exercises
             ExerciseTemplate(
                 name = "Deadlift",
-                category = "Back",
+                category = "back",
                 id = "deadlift",
             ),
             ExerciseTemplate(
                 name = "Pull-ups",
-                category = "Back",
+                category = "back",
                 id = "pull_ups",
             ),
             ExerciseTemplate(
                 name = "Bent-over Row",
-                category = "Back",
+                category = "back",
                 id = "bent_over_row",
             ),
             ExerciseTemplate(
                 name = "Lat Pulldown",
-                category = "Back",
+                category = "back",
                 id = "lat_pulldown",
             ),
             ExerciseTemplate(
                 name = "T-Bar Row",
-                category = "Back",
+                category = "back",
                 id = "t_bar_row",
             ),
             ExerciseTemplate(
                 name = "Seated Cable Row",
-                category = "Back",
+                category = "back",
                 id = "seated_cable_row",
             ),
             ExerciseTemplate(
                 name = "Face Pulls",
-                category = "Back",
+                category = "back",
                 id = "face_pulls",
             ),
 
             // Legs Exercises
             ExerciseTemplate(
                 name = "Squats",
-                category = "Legs",
+                category = "legs",
                 id = "squats",
             ),
             ExerciseTemplate(
                 name = "Leg Press",
-                category = "Legs",
+                category = "legs",
                 id = "leg_press",
             ),
             ExerciseTemplate(
                 name = "Lunges",
-                category = "Legs",
+                category = "legs",
                 id = "lunges",
             ),
             ExerciseTemplate(
                 name = "Romanian Deadlift",
-                category = "Legs",
+                category = "legs",
                 id = "romanian_deadlift",
             ),
             ExerciseTemplate(
                 name = "Leg Curls",
-                category = "Legs",
+                category = "legs",
                 id = "leg_curls",
             ),
             ExerciseTemplate(
                 name = "Leg Extensions",
-                category = "Legs",
+                category = "legs",
                 id = "leg_extensions",
             ),
             ExerciseTemplate(
                 name = "Calf Raises",
-                category = "Legs",
+                category = "legs",
                 id = "calf_raises",
             ),
             ExerciseTemplate(
                 name = "Bulgarian Split Squats",
-                category = "Legs",
+                category = "legs",
                 id = "bulgarian_split_squats",
             ),
             ExerciseTemplate(
                 name = "Hip Thrusts",
-                category = "Legs",
+                category = "legs",
                 id = "hip_thrusts",
             ),
 
             // Shoulders Exercises
             ExerciseTemplate(
                 name = "Overhead Press",
-                category = "Shoulders",
+                category = "shoulders",
                 id = "overhead_press",
             ),
             ExerciseTemplate(
                 name = "Lateral Raises",
-                category = "Shoulders",
+                category = "shoulders",
                 id = "lateral_raises",
             ),
             ExerciseTemplate(
                 name = "Rear Delt Flyes",
-                category = "Shoulders",
+                category = "shoulders",
                 id = "rear_delt_flyes",
             ),
             ExerciseTemplate(
                 name = "Arnold Press",
-                category = "Shoulders",
+                category = "shoulders",
                 id = "arnold_press",
             ),
             ExerciseTemplate(
                 name = "Upright Rows",
-                category = "Shoulders",
+                category = "shoulders",
                 id = "upright_rows",
             ),
             ExerciseTemplate(
                 name = "Shrugs",
-                category = "Shoulders",
+                category = "shoulders",
                 id = "shrugs",
             ),
 
             // Arms Exercises
             ExerciseTemplate(
                 name = "Barbell Curls",
-                category = "Arms",
+                category = "arms",
                 id = "barbell_curls",
             ),
             ExerciseTemplate(
                 name = "Hammer Curls",
-                category = "Arms",
+                category = "arms",
                 id = "hammer_curls",
             ),
             ExerciseTemplate(
                 name = "Tricep Dips",
-                category = "Arms",
+                category = "arms",
                 id = "tricep_dips",
             ),
             ExerciseTemplate(
                 name = "Close-grip Bench Press",
-                category = "Arms",
+                category = "arms",
                 id = "close_grip_bench_press",
             ),
             ExerciseTemplate(
                 name = "Tricep Pushdowns",
-                category = "Arms",
+                category = "arms",
                 id = "tricep_pushdowns",
             ),
             ExerciseTemplate(
                 name = "Preacher Curls",
-                category = "Arms",
+                category = "arms",
                 id = "preacher_curls",
             ),
             ExerciseTemplate(
                 name = "21s Bicep Curls",
-                category = "Arms",
+                category = "arms",
                 id = "21s_bicep_curls",
             ),
             ExerciseTemplate(
                 name = "Overhead Tricep Extension",
-                category = "Arms",
+                category = "arms",
                 id = "overhead_tricep_extension",
             ),
 
             // Core Exercises
             ExerciseTemplate(
                 name = "Planks",
-                category = "Core",
+                category = "core",
                 id = "planks",
             ),
             ExerciseTemplate(
                 name = "Crunches",
-                category = "Core",
+                category = "core",
                 id = "crunches",
             ),
             ExerciseTemplate(
                 name = "Russian Twists",
-                category = "Core",
+                category = "core",
                 id = "russian_twists",
             ),
             ExerciseTemplate(
                 name = "Mountain Climbers",
-                category = "Core",
+                category = "core",
                 id = "mountain_climbers",
             ),
             ExerciseTemplate(
                 name = "Dead Bug",
-                category = "Core",
+                category = "core",
                 id = "dead_bug",
             ),
             ExerciseTemplate(
                 name = "Hanging Leg Raises",
-                category = "Core",
+                category = "core",
                 id = "hanging_leg_raises",
             ),
             ExerciseTemplate(
                 name = "Bicycle Crunches",
-                category = "Core",
+                category = "core",
                 id = "bicycle_crunches",
             ),
             ExerciseTemplate(
                 name = "Ab Wheel Rollouts",
-                category = "Core",
+                category = "core",
                 id = "ab_wheel_rollouts",
             ),
 
             // Cardio Exercises
             ExerciseTemplate(
                 name = "Treadmill Running",
-                category = "Cardio",
+                category = "cardio",
                 id = "treadmill_running",
             ),
             ExerciseTemplate(
                 name = "Cycling",
-                category = "Cardio",
+                category = "cardio",
                 id = "cycling",
             ),
             ExerciseTemplate(
                 name = "Rowing Machine",
-                category = "Cardio",
+                category = "cardio",
                 id = "rowing_machine",
             ),
             ExerciseTemplate(
                 name = "Elliptical",
-                category = "Cardio",
+                category = "cardio",
                 id = "elliptical",
             ),
             ExerciseTemplate(
                 name = "Burpees",
-                category = "Cardio",
+                category = "cardio",
                 id = "burpees",
             ),
             ExerciseTemplate(
                 name = "Jump Rope",
-                category = "Cardio",
+                category = "cardio",
                 id = "jump_rope",
             ),
             ExerciseTemplate(
                 name = "Stair Climbing",
-                category = "Cardio",
+                category = "cardio",
                 id = "stair_climbing",
             ),
             ExerciseTemplate(
                 name = "Battle Ropes",
-                category = "Cardio",
+                category = "cardio",
                 id = "battle_ropes",
             )
         )

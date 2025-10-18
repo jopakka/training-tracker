@@ -34,8 +34,8 @@
             <option value="$PROJECT_DIR$/core/ui" />
             <option value="$PROJECT_DIR$/feature" />
             <option value="$PROJECT_DIR$/feature/active_exercise" />
-            <option value="$PROJECT_DIR$/feature/active_workout" />
-            <option value="$PROJECT_DIR$/feature/workouts" />
+            <option value="$PROJECT_DIR$/feature/exercises" />
+            <option value="$PROJECT_DIR$/feature/exersiceselect" />
           </set>
         </option>
       </GradleProjectSettings>

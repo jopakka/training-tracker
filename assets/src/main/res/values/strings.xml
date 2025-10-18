@@ -2,4 +2,11 @@
 <resources>
     <string name="assets_exercises">Exercises</string>
     <string name="assets_select_exercise">Select exercise</string>
+    <string name="assets_exercise_type_chest">Chest</string>
+    <string name="assets_exercise_type_back">Back</string>
+    <string name="assets_exercise_type_legs">Legs</string>
+    <string name="assets_exercise_type_shoulders">Shoulders</string>
+    <string name="assets_exercise_type_arms">Arms</string>
+    <string name="assets_exercise_type_core">Core</string>
+    <string name="assets_exercise_type_cardio">Cardio</string>
 </resources>

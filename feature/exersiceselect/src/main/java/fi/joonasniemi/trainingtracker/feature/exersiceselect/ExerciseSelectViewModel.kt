@@ -15,6 +15,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlin.time.Clock
 import kotlin.time.ExperimentalTime
@@ -59,8 +60,13 @@ class ExerciseSelectViewModel(
     fun onAction(action: ExerciseSelectAction) {
         when (action) {
             is ExerciseSelectAction.TemplateSelected -> onCreateExercise(action.template)
+            is ExerciseSelectAction.SelectCategory -> selectCategory(action.categoryId)
             else -> TODO("Action  not yet implemented")
         }
+    }
+
+    private fun selectCategory(category: String?) {
+        _state.update { it.copy(selectedCategory = category) }
     }
 
     private fun onCreateExercise(template: ExerciseTemplate) {
