@@ -1,6 +1,5 @@
 package fi.joonasniemi.trainingtracker.core.designsystem.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -13,33 +12,45 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 
-private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+private val TealDarkColorScheme = darkColorScheme(
+    primary = TealPrimary,
+    onPrimary = DarkTextOnPrimary,
+    primaryContainer = MutedGoldAccent,
+    onPrimaryContainer = DarkBackground,
+    secondary = MutedGoldAccent,
+    onSecondary = DarkBackground,
+    background = DarkBackground,
+    onBackground = DarkSlateText,
+    surface = DarkSurface,
+    onSurface = DarkSlateText,
+    surfaceVariant = DarkSurface,
+    onSurfaceVariant = MutedText, // For labels and placeholder text
+    error = SoftRedError,
+    onError = DarkTextOnPrimary
 )
 
-private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+private val TealLightColorScheme = lightColorScheme(
+    primary = TealPrimaryLight,
+    onPrimary = WhiteTextOnPrimary,
+    primaryContainer = GoldAccentLight,
+    onPrimaryContainer = WhiteSurface,
+    secondary = GoldAccentLight,
+    onSecondary = WhiteSurface,
+    background = OffWhiteBackground,
+    onBackground = NearBlackText,
+    surface = WhiteSurface,
+    onSurface = NearBlackText,
+    surfaceVariant = OffWhiteBackground,
+    onSurfaceVariant = GreyText,
+    error = RedErrorLight,
+    onError = WhiteTextOnPrimary
 )
 
 @Composable
 fun TrainingTrackerTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
@@ -48,13 +59,13 @@ fun TrainingTrackerTheme(
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
 
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
+        darkTheme -> TealDarkColorScheme
+        else -> TealLightColorScheme
     }
 
     // Background theme
     val defaultBackgroundTheme = BackgroundTheme(
-        color = colorScheme.surface,
+        color = colorScheme.background,
         tonalElevation = 2.dp,
     )
 

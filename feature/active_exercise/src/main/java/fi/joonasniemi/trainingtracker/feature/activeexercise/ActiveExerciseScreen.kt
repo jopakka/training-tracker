@@ -287,7 +287,7 @@ private fun SetItem(
                         contentDescription = null,
                         modifier = Modifier
                             .fillMaxSize()
-                            .background(Color.Red, ListItemWrapperDefaults.shape)
+                            .background(MaterialTheme.colorScheme.error, ListItemWrapperDefaults.shape)
                             .wrapContentSize(Alignment.CenterEnd)
                             .padding(12.dp),
                         tint = Color.White
