@@ -290,7 +290,7 @@ private fun SetItem(
                             .background(MaterialTheme.colorScheme.error, ListItemWrapperDefaults.shape)
                             .wrapContentSize(Alignment.CenterEnd)
                             .padding(12.dp),
-                        tint = Color.White
+                        tint = MaterialTheme.colorScheme.onError
                     )
                 }
 
